@@ -14,6 +14,8 @@ COPY index.py /opt/uploaderapp/index.py
 
 COPY requirements.txt /opt/uploaderapp/requirements.txt 
 
+VOLUME [ "/opt/uploaderapp" ]
+
 RUN python3 -m pip install -r requirements.txt
 
 CMD ["python3", "index.py"] 
