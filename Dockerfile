@@ -16,4 +16,4 @@ COPY requirements.txt /opt/uploaderapp/requirements.txt
 
 RUN python3 -m pip install -r requirements.txt
 
-RUN python3 index.py 
+CMD ["python3", "index.py"] 
