@@ -1,4 +1,4 @@
-FROM faucet/python3
+FROM python:3.8-slim-buster
 
 WORKDIR /opt/uploaderapp
 
