@@ -2,6 +2,7 @@ import tornado.web
 import tornado.ioloop
 import io 
 
+# This method is for creating custom html files and adds in the URL to the video file that was just created
 
 class createHTML():
     def create_file(self, name, video_url):
@@ -10,7 +11,6 @@ class createHTML():
             content = content.replace('EnterURL', f"{video_url}")
             with io.open(f"shipping/{name}.html", "w", encoding='utf8') as d:
                 video_page = d.writelines(content)
-                # video_page = f.writelines(content.encode('utf-8', 'ignore'))
         return video_page
 
 class uploadHandler(tornado.web.RequestHandler):
