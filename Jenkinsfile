@@ -5,7 +5,7 @@ node {
       }
       stage('Build image') {
 
-            app = docker.build("antonyngayo5028/python-uploader")
+            app = docker.build("groctech/video-uploader")
       }
        stage('Push image') {
             docker.withRegistry('https://registry.hub.docker.com', 'docker-registry') {
