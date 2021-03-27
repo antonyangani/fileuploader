@@ -20,7 +20,6 @@ def setup_custom_logger(name):
 def transfer( filename ):
     log = setup_custom_logger("TransferThread")
 
-
     with open('env.json', "r") as f:
         cred = json.load(f)
 
