@@ -13,7 +13,7 @@ class createHTML():
         with io.open('template/video.html', 'r', encoding='utf8') as f:
             content = f.read()
             content = content.replace('EnterURL', f"{video_url}")
-            with io.open(f"shipping/{name}.html", "w", encoding='utf8') as d:
+            with io.open(f"static-html/{name}.html", "w", encoding='utf8') as d:
                 video_page = d.writelines(content)
         return video_page
 
@@ -26,10 +26,10 @@ class uploadHandler(tornado.web.RequestHandler):
         server_ip_data = server_ip
         for f in files:
             # The file upload process 
-            filehandler = open(f"img/{f.filename}", "wb")
+            filehandler = open(f"media/{f.filename}", "wb")
             filehandler.write(f.body)
             filehandler.close()
-            url = f"http://{server_ip}:8000/img/{f.filename}"
+            url = f"http://{server_ip}:8000/media/{f.filename}"
             
             c = createHTML()
             con = c.create_file(f.filename, url)
@@ -42,7 +42,7 @@ class uploadHandler(tornado.web.RequestHandler):
 
 if __name__ == "__main__":
     app = tornado.web.Application([
-        ("/img/(.*)", tornado.web.StaticFileHandler, {"path" : "img"}),
+        ("/media/(.*)", tornado.web.StaticFileHandler, {"path" : "img"}),
         ("/", uploadHandler)
     ])
     app.listen(8000)
