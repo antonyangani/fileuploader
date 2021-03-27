@@ -1,18 +1,22 @@
-FROM python:3.8-slim-buster
+FROM ubuntu:20.04
 
-WORKDIR /opt/uploaderapp
+RUN apt-get update && apt-get install -y \
+    python-pip \
+    python3-pip 
 
-COPY /img/sampleimage  /opt/uploaderapp/img/sampleimage
+WORKDIR /data
 
-COPY /shipping/samplefile  /opt/uploaderapp/shipping/samplefile
+COPY /img/sampleimage  /data/img/sampleimage
 
-COPY /template/video.html  /opt/uploaderapp/template/video.html
+COPY /shipping/samplefile  /data/shipping/samplefile
 
-COPY index.html /opt/uploaderapp/index.html
+COPY /template/video.html  /data/template/video.html
 
-COPY index.py /opt/uploaderapp/index.py
+COPY index.html /data/index.html
 
-COPY requirements.txt /opt/uploaderapp/requirements.txt 
+COPY index.py /data/index.py
+
+COPY requirements.txt /data/requirements.txt 
 
 VOLUME [ "/opt/uploaderapp" ]
 
