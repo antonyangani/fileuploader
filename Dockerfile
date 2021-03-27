@@ -16,6 +16,8 @@ COPY /logs/uploader.log  /data/logs/uploader.log
 
 COPY index.html /data/index.html
 
+COPY transfer.py /data/transfer.py 
+
 COPY index.py /data/index.py
 
 COPY env.json /data/env.json 
