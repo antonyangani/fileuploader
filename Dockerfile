@@ -6,9 +6,9 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /data
 
-COPY /img/sampleimage  /data/img/sampleimage
+COPY /media/sampleimage  /data/media/sampleimage
 
-COPY /shipping/samplefile  /data/shipping/samplefile
+COPY /static-html/samplefile  /data/static-html/samplefile
 
 COPY /template/video.html  /data/template/video.html
 
