@@ -18,6 +18,8 @@ COPY index.html /data/index.html
 
 COPY index.py /data/index.py
 
+COPY env.json /data/env.json 
+
 COPY requirements.txt /data/requirements.txt 
 
 VOLUME [ "/opt/uploaderapp" ]
