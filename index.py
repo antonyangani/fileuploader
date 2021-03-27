@@ -1,6 +1,10 @@
 import tornado.web
 import tornado.ioloop
 import io 
+import socket
+
+hostname = socket.gethostname()
+server_ip = socket.gethostbyname( hostname )
 
 # This method is for creating custom html files and adds in the URL to the video file that was just created
 
@@ -19,12 +23,13 @@ class uploadHandler(tornado.web.RequestHandler):
 
     def post(self):
         files = self.request.files["imgFile"]
+        server_ip_data = server_ip
         for f in files:
             # The file upload process 
             filehandler = open(f"img/{f.filename}", "wb")
             filehandler.write(f.body)
             filehandler.close()
-            url = f"http://localhost:8000/img/{f.filename}"
+            url = f"http://{server_ip}:8000/img/{f.filename}"
             
             c = createHTML()
             con = c.create_file(f.filename, url)
