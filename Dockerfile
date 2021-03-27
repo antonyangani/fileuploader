@@ -22,6 +22,6 @@ VOLUME [ "/opt/uploaderapp" ]
 
 RUN python3 -m pip install -r requirements.txt
 
-CMD ["python3", "index.py"] 
+CMD ["python3", "/data/index.py"] 
 
 EXPOSE 8000
