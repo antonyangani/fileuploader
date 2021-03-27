@@ -12,6 +12,8 @@ COPY /static-html/samplefile  /data/static-html/samplefile
 
 COPY /template/video.html  /data/template/video.html
 
+COPY /logs/uploader.log  /data/logs/uploader.log 
+
 COPY index.html /data/index.html
 
 COPY index.py /data/index.py
@@ -20,7 +22,7 @@ COPY requirements.txt /data/requirements.txt
 
 VOLUME [ "/opt/uploaderapp" ]
 
-RUN python3 -m pip install -r requirements.txt
+RUN python3 -m pip install -r /data/requirements.txt
 
 CMD ["python3", "/data/index.py"] 
 

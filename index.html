@@ -4,12 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Uploader Container</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Angani Uploader</title>
 </head>
-<body>
-    <form action="/" method="POST" enctype="multipart/form-data">
-        <input type="file" name="imgFile" accept=".jpg,.png,.mp4,.ts,.mp3"/>
-        <input type="submit" value="upload">
-    </form>
+<body class="bg-blue-50">
+    <div class="flex flex-auto p-10">
+
+
+        <!-- Hero section -->
+
+        <div class="max-w-5xl mx-auto bg-gray-100 mb-12">
+            <div class="bg-white lg:flex lg:shadow-lg lg:rounded">
+                <div class="p-12 text-center">
+
+                    <h2 class="text-2xl text-gray-800 font-bold md:text-3xl">Angani File Uploader</h2>
+                    <p class="mt-4 text-gray-600 ">This page automates the video uploading process to wowza streamer and generates video html
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error est ipsa iure quibusdam dicta reprehenderit voluptates fuga voluptate veniam illo, quos quia voluptatum labore ea tenetur, numquam temporibus maxime. Ex.
+                    </p>
+                
+                    <div class="mt-8">
+                        <a href="#" class="bg-gray-900 text-gray-100 px-5 py-3 font-semibold rounded hover:gray-800 hover:shadow-lg">Want to contribute? Start Now!</a>
+                    </div>
+                
+                </div>
+            </div>
+
+            <div class="mt-8 sm:mx-auto sm:w-full sm:mx-w-md">
+                <div class="bg-white py-8 px-6 shadow rounded rounded-lg sm:px-10">
+                    <form action="/" method="POST" enctype="multipart/form-data" class="mb-0 space-y-6">
+                        <input type="file" name="imgFile" accept=".jpg,.png,.mp4,.ts,.mp3" class="w-full border border-gray-300 py-2 rounded"/>
+                        <input type="submit" value="upload" class="w-full border border-gray-300 py-2 rounded bg-blue-300">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- END of hero section -->
+
+
+            
+
+    </div>
 </body>
 </html>

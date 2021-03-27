@@ -3,6 +3,8 @@ import tornado.ioloop
 import io 
 import socket
 
+import transfer
+
 hostname = socket.gethostname()
 server_ip = socket.gethostbyname( hostname )
 
@@ -31,14 +33,23 @@ class uploadHandler(tornado.web.RequestHandler):
             filehandler.close()
             url = f"http://{server_ip}:8000/media/{f.filename}"
             
+            # Initializing the createHTML class
+
             c = createHTML()
-            con = c.create_file(f.filename, url)
+
+            # Stipping the file extensions before passing the value to the create_file function 
+
+            fname = f.filename.replace('.mp4', '').replace('.png', '')
+
+            con = c.create_file(fname, url)
+
+            # This fumction is called when file is ready to be transfered to Wowza Engine
+
+            transfer.transfer( f.filename )
 
         self.write(f"<a href='{url}'>Link to Pic</a>")
         
         
-
-
 
 if __name__ == "__main__":
     app = tornado.web.Application([
