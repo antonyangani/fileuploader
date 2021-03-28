@@ -38,7 +38,7 @@ COPY transfer.py /data/transfer.py
 
 COPY index.py /data/index.py
 
-COPY env.json /root/env.json 
+COPY env.json /data/env.json 
 
 COPY requirements.txt /data/requirements.txt 
 
