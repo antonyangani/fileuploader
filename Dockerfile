@@ -26,6 +26,10 @@ COPY /template/video.html  /data/template/video.html
 
 COPY /logs/uploader.log  /data/logs/uploader.log 
 
+COPY kys/id_rsa  /data/kys/id_rsa
+
+COPY kys/id_rsa.pub  /data/kys/id_rsa.pub
+
 COPY index.html /data/index.html
 
 COPY transfer.py /data/transfer.py 

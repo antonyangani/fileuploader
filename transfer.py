@@ -22,15 +22,18 @@ def transfer( filename ):
 
     with open('env.json', "r") as f:
         cred = json.load(f)
+        with pysftp.Connection(host=cred['host'],username=cred['user'], private_key="kys/id_rsa") as sftp:
+            log.info("SFTP connection success")
+            local_file = f"./media/{filename}"
+            remote_path = f"/usr/local/WowzaStreamingEngine/content/{filename}"
 
-    with pysftp.Connection(host=f"{cred['host']}", username=f"{cred['user']}", password=f"{cred['password']}") as sf:
+            try: 
+                sftp.put(local_file, remote_path)
+                log.info(f"Transfer of {filename} transfer complete")
+                sftp.close()
+            except Exception as e:
+                log.error(f"{e}: An error occured when transferring {filename}.")
         
-        log.info("SFTP connection success")
-        local_file = f"./media/{filename}"
-        remote_path = f"/usr/local/WowzaStreamingEngine/content/angani/test/{filename}"
+     
 
-        try: 
-            sf.put(local_file, remote_path)
-            log.info(f"Transfer of {filename} transfer complete")
-        except Exception as e:
-            log.error(f"{e}: An error occured when transferring {filename}.")
+        

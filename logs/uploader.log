@@ -1,2 +1,2 @@
-2021-03-28 00:20:13 INFO     SFTP connection success
-2021-03-28 00:20:16 INFO     Transfer of errors.png transfer complete
+2021-03-28 15:40:16 INFO     SFTP connection success
+2021-03-28 15:40:17 ERROR    [WinError 2] The system cannot find the file specified: '.\\media\\error.png': An error occured when transferring error.png.
