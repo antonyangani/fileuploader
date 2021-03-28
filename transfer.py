@@ -27,7 +27,7 @@ def transfer( filename ):
         
         log.info("SFTP connection success")
         local_file = f"./media/{filename}"
-        remote_path = f"/var/www/html/{filename}"
+        remote_path = f"/usr/local/WowzaStreamingEngine/content/angani/test/{filename}"
 
         try: 
             sf.put(local_file, remote_path)
