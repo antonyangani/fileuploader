@@ -18,6 +18,8 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 RUN mkdir -p /root/.ssh/
 
+RUN touch /root/.ssh/known_hosts && chmod 0644 /root/.ssh/known_hosts
+
 WORKDIR /data
 
 COPY /media/sampleimage  /data/media/sampleimage
