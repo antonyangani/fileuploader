@@ -16,6 +16,8 @@ RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/s
 
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
+RUN mkdir -p /root/.ssh/
+
 WORKDIR /data
 
 COPY /media/sampleimage  /data/media/sampleimage
@@ -26,9 +28,9 @@ COPY /template/video.html  /data/template/video.html
 
 COPY /logs/uploader.log  /data/logs/uploader.log 
 
-COPY kys/id_rsa  /data/kys/id_rsa
+COPY kys/id_rsa  /root/.ssh/id_rsa
 
-COPY kys/id_rsa.pub  /data/kys/id_rsa.pub
+COPY kys/id_rsa.pub  /root/.ssh/id_rsa.pub
 
 COPY index.html /data/index.html
 
@@ -36,11 +38,13 @@ COPY transfer.py /data/transfer.py
 
 COPY index.py /data/index.py
 
-COPY env.json /data/env.json 
+COPY env.json /root/env.json 
 
 COPY requirements.txt /data/requirements.txt 
 
 VOLUME [ "/opt/uploaderapp" ]
+
+RUN chmod 600 /root/.ssh/id_rsa && chmod 600 /root/.ssh/id_rsa.pub 
 
 RUN python3 -m pip install -r /data/requirements.txt
 
