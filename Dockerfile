@@ -20,7 +20,7 @@ RUN mkdir -p /root/.ssh/
 
 RUN touch /root/.ssh/known_hosts && chmod 0644 /root/.ssh/known_hosts
 
-RUN echo "|1|d3jRUiZk3hZfLCwpdMcKt6+W/Vs=|/b0mJrTCj2UI7BvPGRBqg2fhQSY= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBBBzIRmEY4b/hY2kGUNC7X1y93sIEfBwduvLM1J6IamW6RufhPuQzGPPuhF9x66bO7AO97a6W084t0pl4ukjCU=" >> /root/.ssh/known_hosts
+RUN echo "|1|RNxYfFN7SZjG8kCWop4EA/Q+iT0=|G4Pep38EDfZIE30iCf+/T9q+Hho= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBzQkzdrsOGKJ2CuloyHWqye9S2mJKRGKDc2FpKtmp9kLhEernAOSgd6sMTX2UQzCAO8YsazpcX9YmU0L7UjBS0=" >> /root/.ssh/known_hosts
 
 WORKDIR /data
 

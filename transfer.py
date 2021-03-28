@@ -25,7 +25,7 @@ def transfer( filename ):
         with pysftp.Connection(host=cred['host'],username=cred['user'], private_key="/root/.ssh/id_rsa") as sftp:
             log.info("SFTP connection success")
             local_file = f"./media/{filename}"
-            remote_path = f"/usr/local/WowzaStreamingEngine/content/{filename}"
+            remote_path = f"/usr/local/WowzaStreamingEngine/content/angani/test/{filename}"
 
             try: 
                 sftp.put(local_file, remote_path)
